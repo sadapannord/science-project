@@ -1,10 +1,9 @@
-const  {User} = require("../models");
+const { User } = require("../models");
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return await User.find({});
-
+    user: async (_, { username }) => {
+      return await User.findOne(username);
     },
   },
   Mutation: {
