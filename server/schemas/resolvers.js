@@ -1,7 +1,15 @@
-const resolvers = {
-    Query:{
-        hello:() => "Hello World"
-    }
-}
+const { User } = require("../models/User");
 
-module.exports = resolvers
+const resolvers = {
+  Query: {
+    user: async () => {
+      return await User.find({});
+    },
+  },
+  Mutation: {
+    // changeUser: async (parent, args) => {},
+    addUser: async (parent, args) => {},
+  },
+};
+
+module.exports = resolvers;
