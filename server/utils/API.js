@@ -1,6 +1,16 @@
-import axios from "axios";
+//from API site
+const data = null;
 
-const search = async (query) =>
-  axios.get(`https://api.astronomyapi.com/api/v2/bodies/${query}`);
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
 
-export default { search };
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.astronomyapi.com/api/v2/bodies");
+xhr.setRequestHeader("Authorization", process.env.APP_HASHED);
+
+xhr.send(data);
