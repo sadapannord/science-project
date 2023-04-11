@@ -1,5 +1,6 @@
 // import { set } from "mongoose";
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -28,6 +29,7 @@ function SignUpForm(props) {
     setUsername("");
     setEmail("");
     setPassword("");
+    return <Navigate replace to="/" />;
   };
 
   return (
@@ -78,7 +80,7 @@ function SignUpForm(props) {
         <input
           type="submit"
           value="Login/Create Account"
-          onClink={handleFormSubmit}
+          onClick={handleFormSubmit}
         />
       </form>
     </div>
