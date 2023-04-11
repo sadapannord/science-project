@@ -1,14 +1,34 @@
 const db = require('../config/connection');
-const { User } = require('../models');
+const { User, Project } = require('../models');
+const bcrypt = require("bcrypt");
 
 const userData = require("./userData.json");
+const projectData = require('./projectData.json');
 
 db.once('open', async () => {
-    await User.deleteMany({});
+  await User.deleteMany({});
+  await Project.deleteMany({});//insert many needs done
+
+  const users = userData.map((data) => {
+  const hashedPassword = bcrypt.hashSync(data.password, 10);
+   
+  return new User({ email: data.email, username: data.username, password: hashedPassword });
+  })
   
-    const users = await User.insertMany(userData);
-  
-    console.log('Users seeded!');
-    process.exit(0);
-  });
-  
+  await User.insertMany(users);
+
+for (let i = 0; i < projectData.length; i++) {
+  const {_id, projectAuthor} = await Project.create(projectData[i]);
+  const user = await User.findOneAndUpdate(
+    {username: projectAuthor},
+    {
+      $addToSet: {
+        projects: _id,
+      }
+    }
+  )
+};
+
+  console.log('Seeding Complete!');
+  process.exit(0);
+});
