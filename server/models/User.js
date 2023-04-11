@@ -17,12 +17,18 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      min_length: 5,
+      minlength: 5,
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
+    projects: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Project',
+      }
+    ]
   }
 
 );
