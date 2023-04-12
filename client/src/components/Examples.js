@@ -3,7 +3,7 @@ function Examples() {
     <div>
       <div>
         <img></img>
-        <h4>Positions of Planets</h4>
+        <h4 className="">Positions of Planets</h4>
       </div>
       <div>
         <img></img>

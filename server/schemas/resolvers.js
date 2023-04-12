@@ -1,15 +1,22 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError } = require("apollo-server-express");
 const { User, Project } = require("../models");
-const { signToken } = require('../utils/auth');
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find().populate("projects");
+    },
     user: async (parent, { username }) => {
       return await User.findOne(username);
     },
-    project: async (parent, { username }) => {
-      return await Project.findOne({ _id: username });
-    }
+    projects: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Project.find(params).sort({ createdAt: -1 });
+    },
+    project: async (parent, { projectId }) => {
+      return Project.findOne({ _id: projectId });
+    },
   },
   Mutation: {
     // changeUser: async (parent, args) => {},
@@ -22,13 +29,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError("No user found with this email address");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
@@ -38,18 +45,18 @@ const resolvers = {
     addProject: async (parent, { title, notes, }, context) => {
       if (context.user) {
         const project = await Project.create({
-            title,
-            notes,
-            projectAuthor: context.user.username
-          });
-       await User.findOneAndUpdate(
-        {_id: context.user._id},
-        {$addToSet: {projects: project._id}}
-       ); 
-       
-       return project;
+          title,
+          notes,
+          projectAuthor: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { projects: project._id } }
+        );
+
+        return project;
       }
-    }
+    },
   },
 };
 

@@ -8,7 +8,7 @@ const typeDefs = gql`
     password: String
     projects: [Project]!
   }
-  
+
   type Project {
     _id: ID
     title: String
@@ -24,12 +24,14 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(title: String!, notes: String! projectAuthor: String!): User
+    addProject(title: String!, notes: String!, projectAuthor: String!): User
   }
-  
+
   type Query {
-    user:User
-    project:Project 
+    users: [User]
+    user(username: String!): User
+    projects(username: String!): [Project]
+    project(projectId: ID!): Project
   }
 `;
 
