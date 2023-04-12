@@ -6,28 +6,35 @@ import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function SignUpForm(props) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [addProfile, { error, data }] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "Username") {
-      setUsername(value);
-    } else if (name === "Email") {
-      setEmail(value);
-    } else if (name === "Password") {
-      setPassword(value);
-    }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    alert(`Hello ${username}`);
-    setUsername("");
-    setEmail("");
-    setPassword("");
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -46,8 +53,8 @@ function SignUpForm(props) {
           <input
             type="text"
             name="Username"
-            onChange={handleInputChange}
-            value={username}
+            onChange={handleChange}
+            value={formState.username}
             placeholder="Username"
           />
         </label>
@@ -56,8 +63,8 @@ function SignUpForm(props) {
           <input
             type="text"
             name="Email"
-            onChange={handleInputChange}
-            value={email}
+            onChange={handleChange}
+            value={formState.email}
             placeholder="Email"
           />
         </label>
@@ -66,8 +73,8 @@ function SignUpForm(props) {
           <input
             type="text"
             name="Password"
-            onChange={handleInputChange}
-            value={password}
+            onChange={handleChange}
+            value={formState.password}
             placeholder="Password"
           />
         </label>
@@ -77,7 +84,7 @@ function SignUpForm(props) {
         </label> */}
         <input
           type="submit"
-          value="Login/Create Account"
+          value="Create Account"
           onClink={handleFormSubmit}
         />
       </form>
