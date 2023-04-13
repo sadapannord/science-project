@@ -5,6 +5,7 @@ import { useNavigation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import spaceBackground from "../images/space.jpg"
 
 function SignUpForm(props) {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -37,7 +38,8 @@ function SignUpForm(props) {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+    <div className="relative">
+      <form className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg" onSubmit={handleFormSubmit}>
 
         {/* <label>
           First Name
@@ -90,6 +92,8 @@ function SignUpForm(props) {
 
         />
       </form>
+      <img src={spaceBackground} alt="background" />
+    </div>
     </div>
   );
 }
