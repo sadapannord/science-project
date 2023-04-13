@@ -5,9 +5,14 @@ import { useNavigation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import spaceBackground from "../images/space.jpg";
 
 function SignUpForm(props) {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
@@ -16,13 +21,17 @@ function SignUpForm(props) {
 
     try {
       const { data } = await addUser({
-      variables: { ...formState }
+        variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
-
-    } catch (e) {
-      console.error(e)
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "Username") {
+      setUsername(value);
+    } else if (name === "Email") {
+      setEmail(value);
+    } else if (name === "Password") {
+      setPassword(value);
     }
   };
 
@@ -36,7 +45,7 @@ function SignUpForm(props) {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form>
         {/* <label>
           First Name
           <input type="text" name="First Name" />
@@ -48,30 +57,30 @@ function SignUpForm(props) {
         <label>
           Username
           <input
-            type="username"
-            name="username"
+            type="text"
+            name="Username"
             onChange={handleInputChange}
-            // value={formState.username}
+            value={username}
             placeholder="Username"
           />
         </label>
         <label>
           Email
           <input
-            type="email"
-            name="email"
+            type="text"
+            name="Email"
             onChange={handleInputChange}
-            // value={formState.email}
+            value={email}
             placeholder="Email"
           />
         </label>
         <label>
           Password
           <input
-            type="password"
-            name="password"
+            type="text"
+            name="Password"
             onChange={handleInputChange}
-            // value={formState.password}
+            value={password}
             placeholder="Password"
           />
         </label>
@@ -82,9 +91,9 @@ function SignUpForm(props) {
         <input
           type="submit"
           value="Login/Create Account"
-        // onClick={() => {
-        //   handleFormSubmit();
-        // }}
+          onClick={() => {
+            handleFormSubmit();
+          }}
         />
       </form>
     </div>
