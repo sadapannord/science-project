@@ -39,7 +39,7 @@ function SignUpForm(props) {
       <div className="relative">
         <form
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
-          onSubmit={handleFormSubmit}
+          onSubmit={HandleFormSubmit}
         >
           {/* <label>
           First Name
