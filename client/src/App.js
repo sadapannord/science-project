@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import "./index.css"
+import "./index.css";
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,6 +15,7 @@ import Examples from "./components/Examples";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Project from "./pages/Project";
 import SolarBodiesSearch from "./components/BodiesSearch";
 
 const httpLink = createHttpLink({
@@ -47,6 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/project" element={<Project />} />
           </Routes>
           <Footer />
         </div>
