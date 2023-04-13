@@ -5,6 +5,7 @@ export const QUERY_USERS = gql`
     users {
       _id
       username
+      email
     }
   }
 `;
@@ -14,6 +15,7 @@ export const QUERY_SINGLE_USER = gql`
     user(userId: $userId) {
       _id
       username
+      email
     }
   }
 `;
@@ -23,6 +25,30 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+    }
+  }
+`;
+export const QUERY_PROJECTS = gql`
+  query allProjects {
+    projects {
+      _id
+      title
+      notes
+      createdAt
+      updated
+      projectAuthor
+    }
+  }
+`;
+export const QUERY_PROJECT = gql`
+  query oneProject($projectId: ID!) {
+    projects(projectId: $projectId) {
+      _id
+      title
+      notes
+      createdAt
+      updated
+      projectAuthor
     }
   }
 `;
