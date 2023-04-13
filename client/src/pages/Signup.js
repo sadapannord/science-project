@@ -7,33 +7,34 @@ import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function SignUpForm(props) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "Username") {
-      setUsername(value);
-    } else if (name === "Email") {
-      setEmail(value);
-    } else if (name === "Password") {
-      setPassword(value);
-    }
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        username: formState.username
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
-  const handleFormSubmit = (e) => {
-    // e.preventDefault();
-    alert(`Hello ${username}`);
-    setUsername("");
-    setEmail("");
-    setPassword("");
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
+
 
   return (
     <div>
-      <form>
+      <form onSubmit= {handleFormSubmit}>
         {/* <label>
           First Name
           <input type="text" name="First Name" />
@@ -45,30 +46,30 @@ function SignUpForm(props) {
         <label>
           Username
           <input
-            type="text"
-            name="Username"
+            type="username"
+            name="username"
             onChange={handleInputChange}
-            value={username}
+            // value={formState.username}
             placeholder="Username"
           />
         </label>
         <label>
           Email
           <input
-            type="text"
-            name="Email"
+            type="email"
+            name="email"
             onChange={handleInputChange}
-            value={email}
+            // value={formState.email}
             placeholder="Email"
           />
         </label>
         <label>
           Password
           <input
-            type="text"
-            name="Password"
+            type="password"
+            name="password"
             onChange={handleInputChange}
-            value={password}
+            // value={formState.password}
             placeholder="Password"
           />
         </label>
@@ -79,9 +80,9 @@ function SignUpForm(props) {
         <input
           type="submit"
           value="Login/Create Account"
-          onClick={() => {
-            handleFormSubmit();
-          }}
+          // onClick={() => {
+          //   handleFormSubmit();
+          // }}
         />
       </form>
     </div>
