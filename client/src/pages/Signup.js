@@ -10,7 +10,7 @@ function SignUpForm(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [addProfile, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +24,7 @@ function SignUpForm(props) {
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     alert(`Hello ${username}`);
     setUsername("");
     setEmail("");
