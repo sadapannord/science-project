@@ -12,15 +12,18 @@ function SignUpForm(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        username: formState.username
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+      variables: { ...formState }
+      });
+
+      Auth.login(data.addUser.token);
+
+    } catch (e) {
+      console.error(e)
+    }
   };
 
   const handleInputChange = (event) => {
@@ -31,10 +34,9 @@ function SignUpForm(props) {
     });
   };
 
-
   return (
     <div>
-      <form onSubmit= {handleFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         {/* <label>
           First Name
           <input type="text" name="First Name" />
@@ -80,9 +82,9 @@ function SignUpForm(props) {
         <input
           type="submit"
           value="Login/Create Account"
-          // onClick={() => {
-          //   handleFormSubmit();
-          // }}
+        // onClick={() => {
+        //   handleFormSubmit();
+        // }}
         />
       </form>
     </div>
