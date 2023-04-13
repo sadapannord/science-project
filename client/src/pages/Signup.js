@@ -1,11 +1,12 @@
 // import { set } from "mongoose";
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import spaceBackground from "../images/space.jpg";
+// import Project from "./Project";
 
 function SignUpForm(props) {
   const [formState, setFormState] = useState({
@@ -15,8 +16,9 @@ function SignUpForm(props) {
   });
   const [addUser] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async (event) => {
+  const HandleFormSubmit = async (event) => {
     event.preventDefault();
+    const navigate = useNavigate();
     console.log(formState);
 
     try {
@@ -24,6 +26,7 @@ function SignUpForm(props) {
         variables: { ...formState },
       });
 
+<<<<<<< HEAD
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "Username") {
@@ -32,6 +35,12 @@ function SignUpForm(props) {
       setEmail(value);
     } else if (name === "Password") {
       setPassword(value);
+=======
+      Auth.login(data.addUser.token);
+      navigate("/project");
+    } catch (e) {
+      console.error(e);
+>>>>>>> eed39863fbdf78859401bb1c9c122d9823b283d6
     }
   };
 
@@ -45,8 +54,17 @@ function SignUpForm(props) {
 
   return (
     <div>
+<<<<<<< HEAD
       <form>
         {/* <label>
+=======
+      <div className="relative">
+        <form
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
+          onSubmit={HandleFormSubmit}
+        >
+          {/* <label>
+>>>>>>> eed39863fbdf78859401bb1c9c122d9823b283d6
           First Name
           <input type="text" name="First Name" />
         </label>
@@ -88,6 +106,7 @@ function SignUpForm(props) {
           Confirm Password
           <input type="text" name="Confirm Password" />
         </label> */}
+<<<<<<< HEAD
         <input
           type="submit"
           value="Login/Create Account"
@@ -96,6 +115,12 @@ function SignUpForm(props) {
           }}
         />
       </form>
+=======
+          <input type="submit" value="Login/Create Account" />
+        </form>
+        <img src={spaceBackground} alt="background" />
+      </div>
+>>>>>>> eed39863fbdf78859401bb1c9c122d9823b283d6
     </div>
   );
 }
