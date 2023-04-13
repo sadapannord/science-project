@@ -14,7 +14,7 @@ export default { search };
 const bodies = null;
 
 const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+// xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
@@ -32,7 +32,7 @@ const starCharts =
   '{"style":"default","observer":{"latitude":null,"longitude":null,"date":"2023-04-06"},"view":{"type":"constellation","parameters":{"constellation":"ori"}}}';
 
 const xhr2 = new XMLHttpRequest();
-xhr.withCredentials = true;
+// xhr.withCredentials = true;
 
 xhr2.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
