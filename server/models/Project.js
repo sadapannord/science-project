@@ -26,7 +26,9 @@ const projectSchema = new Schema(
          required: true, 
          trim: true
         },    
-        //add search history 
+        searchHistory: {
+            
+        } 
     }
 );
 
