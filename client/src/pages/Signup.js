@@ -34,9 +34,11 @@ function SignUpForm(props) {
     });
   };
 
+
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
+
         {/* <label>
           First Name
           <input type="text" name="First Name" />
@@ -85,6 +87,7 @@ function SignUpForm(props) {
         // onClick={() => {
         //   handleFormSubmit();
         // }}
+
         />
       </form>
     </div>
