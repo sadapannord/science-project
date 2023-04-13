@@ -1,5 +1,6 @@
 // import { set } from "mongoose";
 import React, { useState } from "react";
+import { useNavigation } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -78,7 +79,9 @@ function SignUpForm(props) {
         <input
           type="submit"
           value="Login/Create Account"
-          onClink={handleFormSubmit}
+          onClick={() => {
+            handleFormSubmit();
+          }}
         />
       </form>
     </div>

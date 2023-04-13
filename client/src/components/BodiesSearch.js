@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ReactDOM } from "react";
 import API from "../utils/API";
 import SearchForm from "./BodiesSearchForm";
 
@@ -12,6 +13,10 @@ const SolarBodiesSearch = () => {
       .then((res) => {
         setResult(res?.data);
         console.log(res);
+        const searchData = res;
+        const data = document.getElementById("search");
+        data.innerHTML = searchData.id;
+        console.log(searchData.id);
       })
       .catch((err) => console.log(err));
   };
@@ -36,6 +41,7 @@ const SolarBodiesSearch = () => {
         handleInputChange={handleInputChange}
         handleFormSubmit={handleFormSubmit}
       />
+      <p id="search"></p>
       {/* {id && (
         <div>
           <p>ID: {id}</p>
