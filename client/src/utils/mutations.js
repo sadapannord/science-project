@@ -4,17 +4,9 @@ export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
-      username
-      email
-      password
-      createdAt
-      projects {
+     user {
         _id
-        title
-        notes
-        createdAt
-        updated
-        projectAuthor
+      username
       }
     }
   }
