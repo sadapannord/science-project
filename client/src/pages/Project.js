@@ -1,33 +1,26 @@
 // import { set } from "mongoose";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
-// import Project from "./Project";
 
-function SignUpForm(props) {
+function CreateProject(props) {
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
+    title: "",
+    notes: "",
   });
-  const [addUser] = useMutation(ADD_USER);
+  const [addProject] = useMutation(ADD_PROJECT);
 
-  const HandleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const navigate = useNavigate();
     console.log(formState);
 
     try {
-      const { data } = await addUser({
+      const { data } = await addProject({
         variables: { ...formState },
       });
-
-      Auth.login(data.addUser.token);
-      navigate("/project");
     } catch (e) {
       console.error(e);
     }
@@ -46,7 +39,7 @@ function SignUpForm(props) {
       <div className="relative">
         <form
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
-          onSubmit={HandleFormSubmit}
+          onSubmit={handleFormSubmit}
         >
           {/* <label>
           First Name
@@ -57,43 +50,38 @@ function SignUpForm(props) {
           <input type="text" name="Last Name" />
         </label> */}
           <label>
-            Username
+            Project Title
             <input
               className="text-black"
-              type="username"
-              name="username"
+              type="projectTitle"
+              name="title"
               onChange={handleInputChange}
               // value={formState.username}
-              placeholder="Username"
+              placeholder="Project Title"
             />
           </label>
           <label>
             Email
             <input
               className="text-black"
-              type="email"
-              name="email"
+              type="notes"
+              name="notes"
               onChange={handleInputChange}
               // value={formState.email}
-              placeholder="Email"
-            />
-          </label>
-          <label>
-            Password
-            <input
-              className="text-black"
-              type="password"
-              name="password"
-              onChange={handleInputChange}
-              // value={formState.password}
-              placeholder="Password"
+              placeholder="Notes"
             />
           </label>
           {/* <label>
           Confirm Password
           <input type="text" name="Confirm Password" />
         </label> */}
-          <input type="submit" value="Login/Create Account" />
+          <input
+            type="submit"
+            value="Login/Create Account"
+            // onClick={() => {
+            //   handleFormSubmit();
+            // }}
+          />
         </form>
         <img src={spaceBackground} alt="background" />
       </div>
@@ -101,4 +89,4 @@ function SignUpForm(props) {
   );
 }
 
-export default SignUpForm;
+export default CreateProject;
