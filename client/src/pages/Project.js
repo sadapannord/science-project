@@ -1,17 +1,21 @@
+
 import React, { useState } from "react";
 import { useNavigation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
+
 function CreateProject(props) {
   const [formState, setFormState] = useState({
     title: "",
     notes: "",
   });
   const [addProject] = useMutation(ADD_PROJECT);
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
       const { data } = await addProject({
         variables: { ...formState },
@@ -20,6 +24,7 @@ function CreateProject(props) {
       console.error(e);
     }
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -27,6 +32,7 @@ function CreateProject(props) {
       [name]: value,
     });
   };
+
   return (
     <div>
       <div className="relative">
@@ -62,3 +68,4 @@ function CreateProject(props) {
   );
 }
 export default CreateProject;
+
