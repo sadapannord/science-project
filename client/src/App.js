@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import SolarBodiesSearch from "./components/BodiesSearch";
+import Project from "./pages/Project"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,6 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/project" element={<Project />} />
           </Routes>
           <Footer />
         </div>
