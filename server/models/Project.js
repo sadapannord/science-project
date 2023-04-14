@@ -21,9 +21,9 @@ const projectSchema = new Schema({
     default: Date.now,
   },
   projectAuthor: {
-   type: String,
-   required: true,
-   trim: true
+    type: String,
+    required: true,
+    trim: true,
   },
 });
 
