@@ -5,13 +5,10 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import spaceBackground from "../images/space.jpg";
-
 import { Link } from "react-router-dom";
-
 
 // import Project from "./Project";
 function SignUpForm(props) {
-  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -26,7 +23,6 @@ function SignUpForm(props) {
         variables: { ...formState },
       });
       Auth.login(data.addUser.token);
-      // navigate("/project");
     } catch (e) {
       console.error(e);
     }
@@ -38,6 +34,7 @@ function SignUpForm(props) {
       [name]: value,
     });
   };
+
   return (
     <div>
       <div className="relative">
@@ -45,6 +42,14 @@ function SignUpForm(props) {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
           onSubmit={HandleFormSubmit}
         >
+          {/* <label>
+          First Name
+          <input type="text" name="First Name" />
+        </label>
+        <label>
+          Last Name
+          <input type="text" name="Last Name" />
+        </label> */}
           <label>
             Username
             <input
@@ -52,6 +57,7 @@ function SignUpForm(props) {
               type="username"
               name="username"
               onChange={handleInputChange}
+              // value={formState.username}
               placeholder="Username"
             />
           </label>
@@ -62,6 +68,7 @@ function SignUpForm(props) {
               type="email"
               name="email"
               onChange={handleInputChange}
+              // value={formState.email}
               placeholder="Email"
             />
           </label>
@@ -72,11 +79,22 @@ function SignUpForm(props) {
               type="password"
               name="password"
               onChange={handleInputChange}
+              // value={formState.password}
               placeholder="Password"
             />
           </label>
-
-          <Link className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" to="/project" type='submit'> Login/Create Account</Link>
+          {/* <label>
+          Confirm Password
+          <input type="text" name="Confirm Password" />
+        </label> */}
+          <Link
+            className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
+            to="/project"
+            type="submit"
+          >
+            {" "}
+            Login/Create Account
+          </Link>
         </form>
         <img src={spaceBackground} alt="background" />
       </div>

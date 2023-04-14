@@ -17,8 +17,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Project from "./pages/Project";
 import SolarBodiesSearch from "./components/BodiesSearch";
-import Project from "./pages/Project"
-
 
 const httpLink = createHttpLink({
   uri: "/graphql",
