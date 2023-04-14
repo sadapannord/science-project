@@ -1,7 +1,6 @@
-// import { set } from "mongoose";
+
 import React, { useState } from "react";
 import { useNavigation } from "react-router-dom";
-
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
@@ -68,5 +67,5 @@ function CreateProject(props) {
     </div>
   );
 }
-
 export default CreateProject;
+
