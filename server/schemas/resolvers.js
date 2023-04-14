@@ -43,37 +43,21 @@ const resolvers = {
       return { token, user };
     },
     addProject: async (parent, { title, notes }, context) => {
-      console.log("did it work");
       if (context.user) {
+        console.log("did it work");
         // original attempt
-        // const project = await Project.create({
-        //   title,
-        //   notes,
-        //   // projectAuthor: context.user.username,
-        // });
-        // await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   { $addToSet: { projects: project._id } }
-        // );
-
-        // return project;
-
-        //this did not work either
-        return User.findOneAndUpdate(
-          { _id: userId },
-          {
-            $addToSet: {
-              projects: { title, notes, createdAt, updated },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
+        const project = await Project.create({
+          title,
+          notes,
+          projectAuthor: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { projects: project._id } }
         );
+
+        return project;
       }
-      throw new AuthenticationError("You need to be logged in!");
-      // }
     },
   },
 };
