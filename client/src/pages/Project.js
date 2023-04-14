@@ -41,14 +41,6 @@ function CreateProject(props) {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
           onSubmit={handleFormSubmit}
         >
-          {/* <label>
-          First Name
-          <input type="text" name="First Name" />
-        </label>
-        <label>
-          Last Name
-          <input type="text" name="Last Name" />
-        </label> */}
           <label>
             Project Title
             <input
@@ -56,32 +48,20 @@ function CreateProject(props) {
               type="projectTitle"
               name="title"
               onChange={handleInputChange}
-              // value={formState.username}
               placeholder="Project Title"
             />
           </label>
           <label>
-            Email
+            Notes
             <input
               className="text-black"
               type="notes"
               name="notes"
               onChange={handleInputChange}
-              // value={formState.email}
               placeholder="Notes"
             />
           </label>
-          {/* <label>
-          Confirm Password
-          <input type="text" name="Confirm Password" />
-        </label> */}
-          <input
-            type="submit"
-            value="Login/Create Account"
-            // onClick={() => {
-            //   handleFormSubmit();
-            // }}
-          />
+          <input type="submit" value="Start New Project" />
         </form>
         <img src={spaceBackground} alt="background" />
       </div>
