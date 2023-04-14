@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import spaceBackground from "../images/space.jpg";
+import { Link } from "react-router-dom";
 
 // import Project from "./Project";
 function SignUpForm(props) {
@@ -86,13 +87,14 @@ function SignUpForm(props) {
           Confirm Password
           <input type="text" name="Confirm Password" />
         </label> */}
-          <input
+          <Link
+            className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
+            to="/project"
             type="submit"
-            value="Login/Create Account"
-            // onClick={() => {
-            //   handleFormSubmit();
-            // }}
-          />
+          >
+            {" "}
+            Login/Create Account
+          </Link>
         </form>
         <img src={spaceBackground} alt="background" />
       </div>
