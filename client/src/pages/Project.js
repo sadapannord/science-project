@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
+import Planets from "../components/Planets";
 
 function CreateProject(props) {
   const [formState, setFormState] = useState({
@@ -48,6 +49,7 @@ function CreateProject(props) {
               placeholder="Project Title"
             />
           </label>
+          <Planets />
           <label>
             Notes
             <input
