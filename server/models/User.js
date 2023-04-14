@@ -22,14 +22,39 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  //original
+  // projects: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Project",
+  //   },
+  // ],
+
+  //add new version of projects, maybe this will work?
   projects: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Project",
+      title: {
+        type: String,
+        required: true,
+      },
+      notes: {
+        type: String,
+        required: "Dont forget to add notes!",
+        minlength: 1,
+        maxlength: 280,
+        trim: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+      updated: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
 });
-
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
