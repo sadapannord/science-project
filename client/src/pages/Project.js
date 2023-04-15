@@ -36,7 +36,7 @@ function CreateProject(props) {
     <div>
       <div className="relative">
         <form
-          className="absolute text-center text-white text-2xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-5 p-5"
+          className="absolute text-center text-white text-2xl bg-purple-300  border-solid border-2 border-purple-300 rounded-lg m-5 p-5"
           onSubmit={HandleFormSubmit}
         >
           <label>
