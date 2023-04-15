@@ -36,7 +36,7 @@ function CreateProject(props) {
     <div>
       <div className="relative">
         <form
-          className="absolute text-center text-white text-2xl bg-purple-300  border-solid border-2 border-purple-300 rounded-lg m-5 p-5"
+          className="absolute text-center text-white text-2xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-5 p-5"
           onSubmit={HandleFormSubmit}
         >
           <label>
@@ -55,14 +55,15 @@ function CreateProject(props) {
           </div>
           <label>
             Notes: 
+
             <input // change input to textarea idk if that matters
+
               className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
 
               type="notes"
               name="notes"
               onChange={handleInputChange}
               placeholder="Notes"
-              rows='10' cols='30'
             />
           </label>
           <div>
