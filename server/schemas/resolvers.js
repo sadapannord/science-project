@@ -42,22 +42,13 @@ const resolvers = {
 
       return { token, user };
     },
-    addProject: async (parent, { title, notes }, context) => {
-      if (context.user) {
-        console.log("did it work");
-        // original attempt
-        const project = await Project.create({
-          title,
-          notes,
-          projectAuthor: context.user.username,
-        });
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { projects: project._id } }
-        );
-
-        return project;
-      }
+    addProject: async (parent, { title, notes, projectAuthor }) => {
+      const project = await Project.create({ title, notes, projectAuthor });
+      await User.findOneAndUpdate(
+        { username: projectAuthor },
+        { $addToSet: { projects: project._id } }
+      );
+      return project;
     },
   },
 };

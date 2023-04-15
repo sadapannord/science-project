@@ -16,6 +16,13 @@ export const QUERY_SINGLE_USER = gql`
       _id
       username
       email
+      projects {
+        _id
+        title
+        notes
+        createdAt
+        updated
+      }
     }
   }
 `;
@@ -34,15 +41,15 @@ export const QUERY_PROJECTS = gql`
       _id
       title
       notes
+      projectAuthor
       createdAt
       updated
-      projectAuthor
     }
   }
 `;
 export const QUERY_PROJECT = gql`
   query oneProject($projectId: ID!) {
-    projects(projectId: $projectId) {
+    project(projectId: $projectId) {
       _id
       title
       notes

@@ -31,6 +31,7 @@ export const ADD_PROJECT = gql`
       notes
       createdAt
       updated
+      projectAuthor
     }
   }
 `;
