@@ -60,6 +60,7 @@ function SignUpForm(props) {
               name="username"
               onChange={handleInputChange}
               placeholder="Username"
+              required
             />
           </label>
           <label>
@@ -70,6 +71,7 @@ function SignUpForm(props) {
               name="email"
               onChange={handleInputChange}
               placeholder="Email"
+              required
             />
           </label>
           <label>
@@ -80,6 +82,7 @@ function SignUpForm(props) {
               name="password"
               onChange={handleInputChange}
               placeholder="Password"
+              required
             />
           </label>
           {/* <label>
