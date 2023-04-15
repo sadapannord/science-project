@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
+import Planets from "../components/Planets";
 
 function CreateProject(props) {
   const [formState, setFormState] = useState({
@@ -12,7 +11,7 @@ function CreateProject(props) {
   });
   const [addProject] = useMutation(ADD_PROJECT);
 
-  const handleFormSubmit = async (event) => {
+  const HandleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
 
@@ -38,18 +37,19 @@ function CreateProject(props) {
       <div className="relative">
         <form
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
-          onSubmit={handleFormSubmit}
+          onSubmit={HandleFormSubmit}
         >
           <label>
             Project Title
             <input
               className="text-black"
-              type="projectTitle"
+              type="title"
               name="title"
               onChange={handleInputChange}
               placeholder="Project Title"
             />
           </label>
+          <Planets />
           <label>
             Notes
             <input
@@ -68,4 +68,3 @@ function CreateProject(props) {
   );
 }
 export default CreateProject;
-
