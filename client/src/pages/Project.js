@@ -36,13 +36,13 @@ function CreateProject(props) {
     <div>
       <div className="relative">
         <form
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
+          className="absolute text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-5 p-5"
           onSubmit={HandleFormSubmit}
         >
           <label>
-            Project Title
+            Project Title:
             <input
-              className="text-black"
+              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
               type="title"
               name="title"
               onChange={handleInputChange}
@@ -50,7 +50,7 @@ function CreateProject(props) {
             />
           </label>
           <Planets />
-          <label>
+          {/* <label>
             Notes
             <input
               className="text-black"
@@ -59,12 +59,20 @@ function CreateProject(props) {
               onChange={handleInputChange}
               placeholder="Notes"
             />
-          </label>
-          <input type="submit" value="Start New Project" />
+          </label> */}
+          <input className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" type="submit" value="Start New Project" />
         </form>
+        <div>
+          <div className="relative">
+            <div  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-20 p-2">
+Your New Project
+            </div>
+          </div>
+        </div>
         <img src={spaceBackground} alt="background" />
       </div>
     </div>
+    
   );
 }
 export default CreateProject;
