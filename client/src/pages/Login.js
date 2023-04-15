@@ -64,6 +64,7 @@ const Login = (props) => {
             name="email"
             onChange={handleInputChange}
             placeholder="Email"
+            required
           />
         </label>
         <label>
@@ -74,6 +75,7 @@ const Login = (props) => {
             name="password"
             onChange={handleInputChange}
             placeholder="Password"
+            required
           />
         </label>
         {/* <label>
