@@ -64,15 +64,15 @@ function CreateProject(props) {
         </form>
         <div>
           <div className="relative">
-            <div  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-20 p-2">
-Your New Project
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg m-20 p-2">
+              Your New Project
             </div>
           </div>
         </div>
         <img src={spaceBackground} alt="background" />
       </div>
     </div>
-    
+
   );
 }
 export default CreateProject;
