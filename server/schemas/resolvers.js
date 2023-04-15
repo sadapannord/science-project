@@ -42,10 +42,9 @@ const resolvers = {
 
       return { token, user };
     },
-    addProject: async (parent, { title, notes, projectAuthor }) => {
-      const project = await Project.create({ title, notes, projectAuthor });
+    addProject: async (parent, { title, notes}) => {
+      const project = await Project.create({ title, notes});
       await User.findOneAndUpdate(
-        { username: projectAuthor },
         { $addToSet: { projects: project._id } }
       );
       return project;

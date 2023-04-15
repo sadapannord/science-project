@@ -24,14 +24,11 @@ export const LOGIN_USER = gql`
   }
 `;
 export const ADD_PROJECT = gql`
-  mutation addProject($title: String!, $notes: String!) {
-    addProject(title: $title, notes: $notes) {
-      _id
-      title
-      notes
-      createdAt
-      updated
-      projectAuthor
-    }
+mutation addProject($title: String!, $notes: String!) {
+  addProject(title: $title, notes: $notes) {
+    _id
+    title
+    notes
   }
+}
 `;
