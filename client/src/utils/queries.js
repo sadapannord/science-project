@@ -41,7 +41,6 @@ export const QUERY_PROJECTS = gql`
       _id
       title
       notes
-      projectAuthor
       createdAt
       updated
     }
@@ -55,7 +54,6 @@ export const QUERY_PROJECT = gql`
       notes
       createdAt
       updated
-      projectAuthor
     }
   }
 `;

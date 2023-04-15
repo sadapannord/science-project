@@ -55,7 +55,9 @@ function CreateProject(props) {
           </div>
           <label>
             Notes: 
-            <input  // change input to textarea idk if that matters
+
+            <input // change input to textarea idk if that matters
+
               className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
 
               type="notes"
