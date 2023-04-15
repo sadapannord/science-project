@@ -1,32 +1,23 @@
 // import { set } from "mongoose";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import spaceBackground from "../images/space.jpg";
-import { Link } from "react-router-dom";
 
-// import Project from "./Project";
+
 function SignUpForm(props) {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: ''
   });
+
   const [addUser] = useMutation(ADD_USER);
-  const HandleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -35,12 +26,31 @@ function SignUpForm(props) {
     });
   };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    
+    navigate('/project');
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState }
+      });
+
+      Auth.login(data.addUser.token);
+
+    } catch (e) {
+      console.error(e)
+    }
+  };
+
+
   return (
     <div>
       <div className="relative">
         <form
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg"
-          onSubmit={HandleFormSubmit}
+          onSubmit={handleFormSubmit}
         >
           {/* <label>
           First Name
@@ -87,18 +97,17 @@ function SignUpForm(props) {
           Confirm Password
           <input type="text" name="Confirm Password" />
         </label> */}
-          <Link
-            className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
-            to="/project"
+          <input
             type="submit"
-          >
-            {" "}
-            Login/Create Account
-          </Link>
-        </form>
+            value="Login/Create Account"
+          />
+          {/* <Link className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" to="/project" type="submit"> Login/Create Account</Link> */}
+          
+        </form >
         <img src={spaceBackground} alt="background" />
       </div>
     </div>
   );
 }
+
 export default SignUpForm;
