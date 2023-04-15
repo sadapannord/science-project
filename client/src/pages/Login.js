@@ -1,9 +1,4 @@
-// import Footer from "../components/Footer";
-// import LoginHeader from "../components/LoginHeader";
-// import AboutSearchFunction from "../components/AboutSearchFunction";
-// import LoginCreateButton from "../components/LoginCreateButton";
-// import SignUp from "../pages/Signup";
-// export default Login;
+
 import React, { useState } from "react";
 import { useNavigate} from "react-router-dom";
 import { useMutation } from "@apollo/client";
