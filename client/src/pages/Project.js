@@ -42,7 +42,7 @@ function CreateProject(props) {
           <label>
             Project Title:
             <input
-              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
+              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
               type="title"
               name="title"
               onChange={handleInputChange}
@@ -50,22 +50,29 @@ function CreateProject(props) {
             />
           </label>
           <Planets />
+          <div className="px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg">
+            *area for api generated info*
+          </div>
           <label>
-            Notes
-            <input
-              className="text-black"
+            Notes: 
+            <textarea  // change input to textarea idk if that matters
+              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
+
               type="notes"
               name="notes"
               onChange={handleInputChange}
               placeholder="Notes"
+              rows='10' cols='30'
             />
           </label>
+          <div>
           <input className="px-3 p-2 m-2 border-solid border-2 border-purple-400 rounded-lg" type="submit" value="Start New Project" />
+          </div>
         </form>
-        {/* <div>
+        <div> {/* area for generated project */}
           <div className="relative">
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300  border-solid border-2 border-purple-300 rounded-lg m-20 p-2">
-              <input type="submit" value='Start New Project'/>
+              <h1>Your new project</h1>
             </div>
           </div>
         </div> */}
