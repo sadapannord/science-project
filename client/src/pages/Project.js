@@ -55,7 +55,7 @@ function CreateProject(props) {
           </div>
           <label>
             Notes: 
-            <textarea  // change input to textarea idk if that matters
+            <input // change input to textarea idk if that matters
               className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
 
               type="notes"
@@ -75,7 +75,7 @@ function CreateProject(props) {
               <h1>Your new project</h1>
             </div>
           </div>
-        </div> */}
+        </div> 
         <img src={spaceBackground} alt="background" />
       </div>
     </div>

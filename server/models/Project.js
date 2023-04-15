@@ -19,12 +19,7 @@ const projectSchema = new Schema({
   updated: {
     type: Date,
     default: Date.now,
-  },
-  projectAuthor: {
-    type: String,
-    required: true,
-    trim: true,
-  },
+  }
 });
 
 const Project = model("Project", projectSchema);
