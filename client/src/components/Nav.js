@@ -10,7 +10,7 @@ function Nav() {
             </div>
             <div className="my-7">
             {/* <h1 className="justify-items-center text-3xl font-bold antialiased">Spacetastic Science</h1> */}
-            <Link className="justify-items-center text-3xl font-bold antialiased" to="/">Spacetastic Science</Link>
+            <Link className="justify-items-center text-5xl font-bold antialiased title" to="/">Spacetastic Science</Link>
             </div>
             <div className="justify-items-end my-7">
                 <Link className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" to="/login"> Login</Link>
