@@ -82,7 +82,7 @@ const Login = (props) => {
       </div>
         {/* <Link className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" to="/project" type="submit"> Login/Create Account</Link> */}
       </form >
-      <img src={spaceBackground} alt="background" />
+      <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
     </div>
   </div>
   );

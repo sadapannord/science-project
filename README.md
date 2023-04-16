@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Science Project Search and Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The Science Project Search and Builder is an interactive MERN Stack Single-Page Application. The application utilizes a React front end that works cooperatively with a MongoDB and Mongoose ODM database, and a GraphQL, API, Express.js, and Node.js server.  
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Description](#description)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Deployed Site](#deployed-site)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+New users should visit the deployed site to register for an account. Once they have registered for an account, they will be redirected to their "Projects" page and have access to the log into the site on future dates without the need to register again. Once on the "Projects" page, uses will be able to view information about planets, make notes about the populated planet information, give their notes a project title, and then save their project for future use.     
 
-### `npm test`
+## Credits
+ 
+Collaborators: [Sada Pan-Nord, ](https://github.com/sadapannord) [Yessenia Vieyra, ](https://github.com/Yvieyra) [Hannah Edwards, ](https://github.com/hannahedwards) [Amanda Paul, and ](https://github.com/MuchMuchierCoding) [Nathan Wood](https://github.com/na-br-wo)
+ 
+## Page Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Landing Page](./client/src/images/Landing.png)
+![Login](./client/src/images/Login.png)
+![Signup](./client/src/images/Signup.png)
 
-### `npm run build`
+## Deployed Site
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Science Project Builder]()
