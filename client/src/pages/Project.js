@@ -72,7 +72,7 @@ function CreateProject(props) {
             this is where your new project wants to go
           </div>
         </div>
-        <img src={spaceBackground} alt="background" />
+        <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
       </div>
     </div>
 
