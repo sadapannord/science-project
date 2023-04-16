@@ -38,13 +38,12 @@ function CreateProject(props) {
 
   return (
     <div>
-      <div className="relative">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg">
-          <div>
-            <div className="px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg bg-purple-300" >
-              <h1>What Planet would you like to research?: </h1>
-              <Planets />
-            </div>
+    <div className="relative">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg">
+        <div>
+          <div className="px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg bg-purple-300" >
+            <h1>What Planet would you like to research?: </h1>
+            <Planets />
           </div>
           <form className="border-solid border-2 border-purple-300 rounded-lg m-2 p-2 bg-purple-300" onSubmit={handleFormSubmit}>
             <label>
@@ -82,9 +81,13 @@ function CreateProject(props) {
               <div className="text-xl" key={project._id}>{project.notes}</div>
             ))}
           </div>
+        <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300">
+          {projects.map((project) => (
+            <div key={project._id}>{project.title}</div>
+          ))}
         </div>
-        <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
       </div>
+      <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
     </div>
   );
 }
