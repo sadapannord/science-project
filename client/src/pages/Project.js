@@ -11,7 +11,7 @@ function CreateProject(props) {
   });
   const [projects, setProjects] = useState([]); // New state variable to hold projects
   const [addProject] = useMutation(ADD_PROJECT);
-
+  const [inputs, setInputs] = useState([]); // New state variable to hold inputs
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
@@ -38,7 +38,6 @@ function CreateProject(props) {
 
 
   return (
-    <div>
     <div className="relative">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl bg-purple-300/50  border-solid border-2 border-purple-300 rounded-lg">
         <div>
@@ -87,9 +86,10 @@ function CreateProject(props) {
             ))}
           </div>
       </div>
-      <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
+    </div>
+    <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
     </div>
   );
-}
-export default CreateProject;
 
+};
+export default CreateProject
