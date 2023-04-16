@@ -17,17 +17,17 @@ db.once('open', async () => {
   
   await User.insertMany(users);
 
-// for (let i = 0; i < projectData.length; i++) {
-//   const {_id} = await Project.create(projectData[i]);
-//   const user = await User.findOneAndUpdate(
-//     {username: _id},
-//     {
-//       $addToSet: {
-//         projects: _id,
-//       }
-//     }
-//   )
-// };
+for (let i = 0; i < projectData.length; i++) {
+  const {_id} = await Project.create(projectData[i]);
+  const user = await User.findOneAndUpdate(
+    {username: _id},
+    {
+      $addToSet: {
+        projects: _id,
+      }
+    }
+  )
+};
 
   console.log('Seeding Complete!');
   process.exit(0);
