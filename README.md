@@ -17,13 +17,13 @@ New users should visit the deployed site to register for an account. Once they h
 
 ## Credits
  
-Collaborators: [Sada Pan-Nord](https://github.com/sadapannord) [Yessenia Vieyra](https://github.com/Yvieyra) [Hannah Edwards](https://github.com/hannahedwards) [Amanda Paul](https://github.com/MuchMuchierCoding) [Nathan Wood](https://github.com/na-br-wo)
+Collaborators: [Sada Pan-Nord, ](https://github.com/sadapannord) [Yessenia Vieyra, ](https://github.com/Yvieyra) [Hannah Edwards, ](https://github.com/hannahedwards) [Amanda Paul, and ](https://github.com/MuchMuchierCoding) [Nathan Wood](https://github.com/na-br-wo)
  
 ## Page Preview
 
-![Landing Page]()
-![Login]()
-![Signup]()
+![Landing Page](./client/src/images/Landing.png)
+![Login](./client/src/images/Login.png)
+![Signup](./client/src/images/Signup.png)
 
 ## Deployed Site
 
