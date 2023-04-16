@@ -9,7 +9,7 @@ function CreateProject(props) {
     title: "",
     notes: "",
   });
-  const [projects, setProjects] = useState([]); // new state variable to hold projects
+  const [projects, setProjects] = useState([]); // New state variable to hold projects
   const [addProject] = useMutation(ADD_PROJECT);
 
   const handleFormSubmit = async (event) => {
@@ -45,35 +45,42 @@ function CreateProject(props) {
             <h1>What Planet would you like to research?: </h1>
             <Planets />
           </div>
-        </div>
-        <form className="border-solid border-2 border-purple-300 rounded-lg m-2 p-2 bg-purple-300" onSubmit={handleFormSubmit}>
-          <label>
-            Project Title:
-            <input
-              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
-              type="title"
-              name="title"
-              value={formState.title} // bind value to state variable
-              onChange={handleInputChange}
-              placeholder="Project Title"
-            />
-          </label>
-          <br></br>
-          <label>
-            Notes:
-            <input
-              className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
-              type="notes"
-              name="notes"
-              value={formState.notes} // bind value to state variable
-              onChange={handleInputChange}
-              placeholder="Notes"
-            />
-          </label>
-          <div>
-            <input className="px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg" type="submit" value="Start New Project" />
+          <form className="border-solid border-2 border-purple-300 rounded-lg m-2 p-2 bg-purple-300" onSubmit={handleFormSubmit}>
+            <label>
+              Project Title:
+              <input
+                className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
+                type="title"
+                name="title"
+                value={formState.title} // bind value to state variable
+                onChange={handleInputChange}
+                placeholder="Project Title"
+              />
+            </label>
+            <br></br>
+            <label>
+              Notes:
+              <input
+                className="text-black px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg"
+                type="notes"
+                name="notes"
+                value={formState.notes} // bind value to state variable
+                onChange={handleInputChange}
+                placeholder="Notes"
+              />
+            </label>
+            <div>
+              <input className="px-3 p-2 m-2 border-solid border-2 border-purple-200 rounded-lg" type="submit" value="Start New Project" />
+            </div>
+          </form>
+          <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300">
+            {projects.map((project) => (
+              <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300 text-5xl" key={project._id}>{project.title}</div>
+            ))}
+            {projects.map((project) => (
+              <div className="text-xl" key={project._id}>{project.notes}</div>
+            ))}
           </div>
-        </form>
         <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300">
           {projects.map((project) => (
             <div key={project._id}>{project.title}</div>
@@ -82,7 +89,6 @@ function CreateProject(props) {
       </div>
       <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
     </div>
-  </div>
   );
 }
 export default CreateProject;
