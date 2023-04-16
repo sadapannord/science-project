@@ -10,6 +10,7 @@ function CreateProject(props) {
     notes: "",
   });
   const [projects, setProjects] = useState([]); // New state variable to hold projects
+  const [inputs, setInputs] = useState([]); // New state variable to hold inputs
   const [addProject] = useMutation(ADD_PROJECT);
 
   const handleFormSubmit = async (event) => {
@@ -21,6 +22,7 @@ function CreateProject(props) {
         variables: { ...formState },
       });
       setProjects([...projects, data.addProject]); // add new project to the projects array
+      setInputs([...inputs, formState]); // add new input to the inputs array
       setFormState({ title: "", notes: "" }); // clear the form
     } catch (e) {
       console.error(e);
@@ -46,7 +48,7 @@ function CreateProject(props) {
               <Planets />
             </div>
           </div>
-          <form className="border-solid border-2 border-purple-300 rounded-lg m-2 p-2 bg-purple-300" onSubmit={handleFormSubmit}>
+          <form className="border-solid border-2 border-purple-200 rounded-lg m-2 p-2 bg-purple-300" onSubmit={handleFormSubmit}>
             <label>
               Project Title:
               <input
@@ -76,10 +78,14 @@ function CreateProject(props) {
           </form>
           <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300">
             {projects.map((project) => (
-              <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300 text-5xl" key={project._id}>{project.title}</div>
-            ))}
-            {projects.map((project) => (
-              <div className="text-xl" key={project._id}>{project.notes}</div>
+              <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1 bg-purple-300" key={project._id}>
+                <div className="text-5xl title">
+                {project.title}
+                </div>
+                <div className="text-xl">
+                  {project.notes}
+                </div>
+              </div>
             ))}
           </div>
         </div>
