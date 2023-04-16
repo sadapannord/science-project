@@ -50,7 +50,7 @@ const Planets = () => {
         Neptune
       </button>
       <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1">
-        this is where the results want to go 
+         {search}
       </div>
     </div>
   );
