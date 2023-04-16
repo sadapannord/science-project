@@ -5,37 +5,45 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import spaceBackground from "../images/space.jpg";
+
 const Login = (props) => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, {error}] = useMutation(LOGIN_USER);
+
   // update state based on form input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
     setFormState({
       ...formState,
       [name]: value,
     });
   };
+
   // submit form
   const handleFormSubmit = async (event) => {
+    
     event.preventDefault();
-    navigate('/project');
     console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
+
       Auth.login(data.login.token);
+      navigate('/project');
     } catch (e) {
       console.error(e);
     }
+
     // clear form values
     setFormState({
       email: '',
       password: '',
     });
   };
+
   return (
     <div>
     <div className="relative">
@@ -74,6 +82,11 @@ const Login = (props) => {
         <input type="text" name="Confirm Password" />
       </label> */}
       <div>
+      {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
       <input
       className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg"
           type="submit"
