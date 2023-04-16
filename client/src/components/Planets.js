@@ -16,6 +16,7 @@ const Planets = () => {
       .then((res) => {
         setResult(res?.data);
         console.log(res);
+        console.log(res);
       })
       .catch((err) => console.log(err));
   }, [search]);
@@ -49,7 +50,7 @@ const Planets = () => {
         Neptune
       </button>
       <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1">
-        this is where the results want to go
+        this is where the results want to go 
       </div>
     </div>
   );
