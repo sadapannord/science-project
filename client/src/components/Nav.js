@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 function Nav() {
     return (
-        <nav className="bg-purple-400 justify-between flex text-white">
-            <div className="justify-items-start my-7">
+        <nav className="bg-purple-400 justify-between flex text-white flex-wrap">
+            <div className="justify-items-start my-7 hidden lg:block">
                 {/* <a className="px-3">About</a> */}
                 <Link className="px-3 p-2 m-2 border-solid border-2 border-purple-300 rounded-lg" to="/signup"> Start Your Project!</Link>
             </div>

@@ -11,7 +11,7 @@ function Hero() {
           Begin your search for space facts to make the coolest science project
           ever!
         </h2>
-        <img src={spaceBackground} alt="background" />
+        <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
       </div>
       {/* <button>Create Account</button>
       <SolarBodiesSearch />
