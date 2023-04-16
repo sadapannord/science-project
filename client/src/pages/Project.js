@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../utils/mutations";
 import spaceBackground from "../images/space.jpg";
 import Planets from "../components/Planets";
+import { AuthContext } from '../utils/AuthContext';
 
 function CreateProject(props) {
+  const { currentUser } = useContext(AuthContext);
   const [formState, setFormState] = useState({
     title: "",
     notes: "",
   });
   const [projects, setProjects] = useState([]); // new state variable to hold projects
   const [addProject] = useMutation(ADD_PROJECT);
+  const userId = currentUser;
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +21,7 @@ function CreateProject(props) {
 
     try {
       const { data } = await addProject({
-        variables: { ...formState },
+        variables: { ...formState, userId },
       });
       setProjects([...projects, data.addProject]); // add new project to the projects array
       setFormState({ title: "", notes: "" }); // clear the form
