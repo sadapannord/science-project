@@ -28,14 +28,13 @@ const Planets = () => {
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Venus" onClick={() => HandleSelect("Venus")}>
         Venus
       </button>
-      <br></br>
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Earth" onClick={() => HandleSelect("Earth")}>
         Earth
       </button>
+      <br></br>
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Mars" onClick={() => HandleSelect("Mars")}>
         Mars
       </button>
-      <br></br>
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Jupiter" onClick={() => HandleSelect("Jupiter")}>
         Jupiter
       </button>
@@ -49,6 +48,9 @@ const Planets = () => {
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Neptune" onClick={() => HandleSelect("Neptune")}>
         Neptune
       </button>
+      <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1">
+        this is where the results want to go
+      </div>
     </div>
   );
 };
