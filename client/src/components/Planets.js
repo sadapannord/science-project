@@ -31,7 +31,7 @@ const Planets = () => {
 
   return (
     <div>
-      <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Mercury" onClick={() => HandleSelect(<Venus />)}>
+      <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Mercury" onClick={() => HandleSelect(<Mercury />)}>
         Mercury
       </button>
       <button className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1" id="Venus" onClick={() => HandleSelect(<Venus />)}>
