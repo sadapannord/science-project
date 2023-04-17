@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
+
 function Nav() {
     return (
         <nav className="bg-purple-400 justify-between flex text-white flex-wrap">

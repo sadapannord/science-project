@@ -1,6 +1,4 @@
 import React from "react";
-import SolarBodiesSearch from "./BodiesSearch";
-import Examples from "./Examples";
 import spaceBackground from "../images/space.jpg"
 
 function Hero() {
@@ -13,9 +11,6 @@ function Hero() {
         </h2>
         <img className="bg-no-repeat bg-cover h-screen w-screen" src={spaceBackground} alt="background" />
       </div>
-      {/* <button>Create Account</button>
-      <SolarBodiesSearch />
-      <Examples /> */}
     </div>
   );
 }
