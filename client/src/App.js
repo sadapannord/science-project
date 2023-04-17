@@ -11,12 +11,11 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Head"; //tried to call it header but was stupid
 import Hero from "./components/Hero";
-import Examples from "./components/Examples";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Project from "./pages/Project";
-import SolarBodiesSearch from "./components/BodiesSearch";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",

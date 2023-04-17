@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import SolarBodiesSearch from "./BodiesSearch";
 import API from "../utils/API";
 import Mercury from "./Mercury";
 import Venus from './Venus';
@@ -13,7 +12,7 @@ import Mars from "./Mars";
 const Planets = () => {
   const [result, setResult] = useState({});
   const [search, setSearch] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   function HandleSelect(value) {
     setSearch(value);
@@ -24,7 +23,7 @@ const Planets = () => {
       .then((res) => {
         setResult(res?.data);
         console.log(res);
-        console.log(res);
+        console.log(result);
       })
       .catch((err) => console.log(err));
   }, [search]);
