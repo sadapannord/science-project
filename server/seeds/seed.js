@@ -18,9 +18,9 @@ db.once('open', async () => {
   await User.insertMany(users);
 
 for (let i = 0; i < projectData.length; i++) {
-  const {_id, projectAuthor} = await Project.create(projectData[i]);
+  const {_id} = await Project.create(projectData[i]);
   const user = await User.findOneAndUpdate(
-    {username: projectAuthor},
+    {username: _id},
     {
       $addToSet: {
         projects: _id,
