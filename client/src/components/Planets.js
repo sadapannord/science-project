@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import Mercury from "./Mercury";
-import Venus from "./Venus";
-import Earth from "./Earth";
-import Jupiter from "./Jupiter";
-import Saturn from "./Saturn";
-import Neptune from "./Neptune";
-import Uranus from "./Uranus";
-import Mars from "./Mars";
 import PlanetProvider from "./PlanetInfo";
 
 const Planets = (props) => {
@@ -91,7 +83,7 @@ const Planets = (props) => {
       <div className="border-solid border-2 border-purple-200 rounded-lg m-1 p-1">
         Search results: {search}
       </div>
-      {search !== null && <PlanetProvider result={result} />}
+      {search !== null && search !== "" && <PlanetProvider result={result} />}
     </div>
   );
 };

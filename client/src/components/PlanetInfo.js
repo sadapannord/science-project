@@ -39,6 +39,12 @@ const PlanetProvider = (props) => {
       <li>
         <p>My average radius is {props.result.meanRadius} kilometers</p>
       </li>
+      {/* {props.result.englishName === "Mercury" && (
+        <div>
+          <img src="client\src\images\mercury.png" alt="Image of Mercury"></img>
+          <p>testing</p>
+        </div>
+      )} */}
     </div>
   );
 };
